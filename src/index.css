@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Galine';
+  src: url('/Galine.ttf') format('truetype');
+  
+  
+}
+
+@font-face {
+  font-family: 'Questrial';
+  src: url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+}

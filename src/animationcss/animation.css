@@ -1,0 +1,16 @@
+/* YourComponent.css */
+
+.animate-Bottom{
+ animation: fromBottom 1s ease-out;
+}
+
+@keyframes fromBottom{
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to{ 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
