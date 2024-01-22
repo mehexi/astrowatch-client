@@ -10,7 +10,7 @@ const HomeSection = () => {
       speed: 300
     });
     b.start();
-    b.reveal([1000], [1000]);
+    b.reveal([500], [500]);
   }, []);
 
   return (
@@ -39,9 +39,12 @@ const HomeSection = () => {
               ASTROWATCH
             </div>
           </div>
-          <button className="px-[50px] py-[10px] border w-fit mx-auto rounded-full text-base hover:bg-white hover:text-black duration-300 font-semibold capitalize">
-            shop now
-          </button>
+          <label className=" border w-fit mx-auto rounded-full relative group overflow-hidden">
+            <button className="px-[50px] py-[10px] font-semibold capitalize group-hover:text-black duration-500">
+              shop now
+            </button>
+            <div className="h-20 absolute top-0 w-full bg-white translate-y-28 group-hover:translate-y-0 duration-500 -z-20 ">hellp</div>
+          </label>
         </div>
       </div>
     </section>
