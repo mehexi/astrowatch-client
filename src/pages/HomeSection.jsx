@@ -14,7 +14,7 @@ const HomeSection = () => {
   }, []);
 
   return (
-    <section className="w-screen h-screen relative">
+    <section className="h-screen relative">
       <video
         autoPlay
         loop
