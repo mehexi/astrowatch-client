@@ -1,6 +1,6 @@
 import baffle from "baffle";
 import React, { useEffect } from "react";
-import "../animationcss/animation.css";
+import "../../animationcss/animation.css";
 
 const HomeSection = () => {
   useEffect(() => {

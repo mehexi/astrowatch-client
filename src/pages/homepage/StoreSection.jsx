@@ -1,5 +1,5 @@
-import Products from "../componant/Products";
-import SIdeNav from "../componant/SIdeNav";
+import Products from "../../componant/Products";
+import SIdeNav from "../../componant/SIdeNav";
 
 const StoreSection = () => {
   return (
