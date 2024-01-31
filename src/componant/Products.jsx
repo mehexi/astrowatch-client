@@ -8,8 +8,8 @@ const Products = () => {
   const products = useLoaderData();
   const [isVisible, setIsVisible] = useState(false);
   const [ref, inView] = useInView({
-    threshold: 0.1, 
-    triggerOnce: true 
+    threshold: 0.1,
+    triggerOnce: true
   });
 
   useEffect(() => {
@@ -32,6 +32,12 @@ const Products = () => {
           <ProductCard item={products[index]} />
         </animated.div>
       ))}
+      <div className="join col-span-3 mx-auto flex gap-10 mb-10">
+        <button className="join-item w-full border-b-red-800 ">1</button>
+        <button className="join-item ">2</button>
+        <button className="join-item ">3</button>
+        <button className="join-item ">4</button>
+      </div>
     </div>
   );
 };
