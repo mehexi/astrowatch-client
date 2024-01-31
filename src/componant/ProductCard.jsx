@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ item }) => {
   const {
@@ -7,11 +8,12 @@ const ProductCard = ({ item }) => {
     "Product Images": productImg
   } = item;
 
-  console.log(Price);
+  console.log(item);
 
   return (
-    <div className="col-span-1  flex flex-col gap-6 pb-6">
-      <img src={productImg} alt="" />
+    <div className=" flex flex-col gap-6 pb-6">
+      <Link to={`/${item._id}`}>
+      <img className="w-full h-80 object-cover " src={productImg} alt="" />
       <div className="flex flex-col gap-3">
         <h1 className="text-base font-Questrial uppercase text-center tracking-widest">
           {productName}
@@ -25,7 +27,8 @@ const ProductCard = ({ item }) => {
           </h1>
         </div>
       </div>
-    </div>
+      </Link>
+      </div>
   );
 };
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../animationcss/animation.css";
 const SIdeNav = () => {
   return (
@@ -7,8 +8,9 @@ const SIdeNav = () => {
           sidebar menu
         </h1>
         <ul className="text-base text-gray-500 capitalize flex flex-col gap-2">
-          <li>mens watch</li>
-          <li>mens watch</li>
+         <Link to={'/mansCollection'}> <li>mens watch</li></Link>
+         <Link to={'/womansCollection'}> <li>Woman watch</li></Link>
+          
         </ul>
       </div>
       <div className="flex flex-col gap-3">

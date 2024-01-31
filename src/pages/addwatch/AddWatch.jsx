@@ -1,84 +1,84 @@
 import Navbar from "../../componant/NavBar";
+import OtherNavBar from "../../componant/otherNavBar";
 
 const AddWatch = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-        const formData = new FormData(form);
+    const formData = new FormData(form);
 
-        const formDataToObject = (formData) => {
-            const productData = {};
+    const formDataToObject = (formData) => {
+      const productData = {};
 
-            productData["Product Name"] = formData.get("productName");
+      productData["Product Name"] = formData.get("productName");
 
-            const productImages = [];
-            for (let i = 1; i <= 3; i++) {
-                const imageKey = `productImage${i}`;
-                const imageUrl = formData.get(imageKey);
-                if (imageUrl) {
-                    productImages.push(imageUrl);
-                }
-            }
-            productData["Product Images"] = formData.get('imgUrl');
+      const productImages = [];
+      for (let i = 1; i <= 3; i++) {
+        const imageKey = `productImage${i}`;
+        const imageUrl = formData.get(imageKey);
+        if (imageUrl) {
+          productImages.push(imageUrl);
+        }
+      }
+      productData["Product Images"] = formData.get("imgUrl");
 
-            // Price
-            productData["Price"] = {
-                "Original": formData.get("originalPrice"),
-                "Discounted": formData.get("discountedPrice")
-            };
+      // Price
+      productData["Price"] = {
+        Original: formData.get("originalPrice"),
+        Discounted: formData.get("discountedPrice")
+      };
 
-            // Details
-            productData["Details"] = {
-                "Style": formData.get("style"),
-                "Clasp type": formData.get("claspType"),
-                "Water resistance depth": formData.get("waterResistanceDepth"),
-                "Movement": formData.get("movement"),
-                "Case material": formData.get("caseMaterial"),
-                "Band length": formData.get("bandLength"),
-                "Dial window material type": formData.get("dialWindowMaterialType"),
-                "Case thickness": formData.get("caseThickness"),
-                "Band width": formData.get("bandWidth"),
-                "Case shape": formData.get("caseShape"),
-                "Item type": formData.get("itemType"),
-                "Band material type": formData.get("bandMaterialType"),
-                "Dial diameter": formData.get("dialDiameter"),
-                "Gender": formData.get("gender"),
-                "SKU": formData.get("sku"),
-                "Care Label": formData.get("careLabel"),
-                "Color": formData.get("color"),
-                "Main Material": formData.get("mainMaterial"),
-                "Model": formData.get("model"),
-                "Production Country": formData.get("productionCountry"),
-                "Size (L x W x H cm)": formData.get("size"),
-                "Weight (kg)": formData.get("weight")
-            };
+      // Details
+      productData["Details"] = {
+        Style: formData.get("style"),
+        "Clasp type": formData.get("claspType"),
+        "Water resistance depth": formData.get("waterResistanceDepth"),
+        Movement: formData.get("movement"),
+        "Case material": formData.get("caseMaterial"),
+        "Band length": formData.get("bandLength"),
+        "Dial window material type": formData.get("dialWindowMaterialType"),
+        "Case thickness": formData.get("caseThickness"),
+        "Band width": formData.get("bandWidth"),
+        "Case shape": formData.get("caseShape"),
+        "Item type": formData.get("itemType"),
+        "Band material type": formData.get("bandMaterialType"),
+        "Dial diameter": formData.get("dialDiameter"),
+        Gender: formData.get("gender"),
+        SKU: formData.get("sku"),
+        "Care Label": formData.get("careLabel"),
+        Color: formData.get("color"),
+        "Main Material": formData.get("mainMaterial"),
+        Model: formData.get("model"),
+        "Production Country": formData.get("productionCountry"),
+        "Size (L x W x H cm)": formData.get("size"),
+        "Weight (kg)": formData.get("weight")
+      };
 
-            return productData;
-        };
-
-        const productData = formDataToObject(formData);
-        console.log(productData);
-
-        
-        fetch('http://localhost:5000/watchData', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(productData)
-        })
-            .then(res => res.json())
-            .then(data => console.log(data));
+      return productData;
     };
+
+    const productData = formDataToObject(formData);
+    console.log(productData);
+
+    fetch("http://localhost:5000/watchData", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(productData)
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <>
       <div className="absolute">
-        <Navbar />
+       <OtherNavBar></OtherNavBar>
       </div>
-          <form
-              onSubmit={handleSubmit}
+      <form 
+        onSubmit={handleSubmit}
         className="flex flex-col gap-6 mx-32 mt-40 w-6/12 bg-gray-100 px-9 py-16"
         action=""
       >
@@ -291,13 +291,15 @@ const AddWatch = () => {
           </label>
           <label className="flex flex-col gap-3 col-span-1" htmlFor="gender">
             <h1 className="font-semibold">Gender</h1>
-            <input
-              type="text"
+            <select
               className="border px-6 py-3 rounded w-full"
               name="gender"
               id="gender"
               placeholder="Gender"
-            />
+            >
+              <option value="men">Male</option>
+              <option value="woman">Female</option>
+            </select>
           </label>
           <label className="flex flex-col gap-3 col-span-1" htmlFor="sku">
             <h1 className="font-semibold">SKU</h1>
@@ -401,8 +403,8 @@ const AddWatch = () => {
               placeholder="Img url"
             />
           </label>
-              </div>
-              <button className="bg-gray-600 text-white py-3 rounded"> submit</button>
+        </div>
+        <button className="bg-gray-600 text-white py-3 rounded"> submit</button>
       </form>
     </>
   );
